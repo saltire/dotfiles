@@ -5,21 +5,25 @@ SAVEHIST=1000
 setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/Users/marcus/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
+source ~/.zsh/completion.zsh
+
+
+# prompt
 
 autoload -U colors && colors
 
+HOST_COLOR=white # override this in the below file
+[[ -f ~/.zsh/hostcolor.zsh ]] && source ~/.zsh/hostcolor.zsh
+
 source ~/.zsh/git.zsh
 
-PROMPT_COLOR=yellow
 PS1="
-$fg_bold[$PROMPT_COLOR]%n$reset_color@$fg_bold[$PROMPT_COLOR]%M $reset_color%~ $fg[red]\$(prompt_git_info)$reset_color
+%b%n%B@%{$fg_bold[$HOST_COLOR]%}%M%{$reset_color%} %~ %{$fg[red]%}\$(prompt_git_info)%{$reset_color%}
 %(!.#.>) "
+
+
+# aliases
 
 alias ls='ls -G'
 alias ll='ls -al'

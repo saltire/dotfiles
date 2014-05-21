@@ -1,3 +1,17 @@
+# Initialize colors.
+autoload -U colors
+colors
+
+# Allow for functions in the prompt.
+setopt PROMPT_SUBST
+
+# Add functions to zsh hooks.
+autoload -U add-zsh-hook
+add-zsh-hook chpwd update_current_git_vars
+add-zsh-hook preexec preexec_update_git_vars
+add-zsh-hook precmd precmd_update_git_vars
+
+
 function update_current_git_vars() {
     unset __CURRENT_GIT_BRANCH
     unset __CURRENT_GIT_BRANCH_STATUS
@@ -31,7 +45,7 @@ function update_current_git_vars() {
 }
 
 function preexec_update_git_vars() {
-    case "$1" in 
+    case "$1" in
         git*)
         __EXECUTED_GIT_COMMAND=1
         ;;
@@ -64,23 +78,7 @@ function prompt_git_info() {
             s+="⚡"
         fi
         s+=")"
-     
+
         echo "$s\n"
     fi
 }
-
-# Initialize colors.
-autoload -U colors
-colors
- 
-# Allow for functions in the prompt.
-setopt PROMPT_SUBST
-
-# Add functions to zsh hooks.
-autoload -U add-zsh-hook
-add-zsh-hook chpwd update_current_git_vars
-add-zsh-hook preexec preexec_update_git_vars
-add-zsh-hook precmd precmd_update_git_vars
- 
-# Set the prompt.
-#PROMPT=$'%{${fg[cyan]}%}%B%~%b$(prompt_git_info)%{${fg[default]}%} '
