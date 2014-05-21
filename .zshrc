@@ -11,7 +11,8 @@ source ~/.zsh/completion.zsh
 
 # prompt
 
-autoload -U colors && colors
+autoload -U colors && colors # enable colours
+setopt prompt_subst # allow functions in prompt
 
 HOST_COLOR=white # override this in the below file
 [[ -f ~/.zsh/hostcolor.zsh ]] && source ~/.zsh/hostcolor.zsh
@@ -19,7 +20,7 @@ HOST_COLOR=white # override this in the below file
 source ~/.zsh/git.zsh
 
 PS1="
-%b%n%B@%{$fg_bold[$HOST_COLOR]%}%M%{$reset_color%} %~ %{$fg[red]%}\$(prompt_git_info)%{$reset_color%}
+%B%n%b@%{$fg_bold[$HOST_COLOR]%}%M%{$reset_color%} %~ %{$fg[red]%}\$(prompt_git_info)%{$fg[default]%}
 %(!.#.>) "
 
 
