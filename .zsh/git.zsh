@@ -11,6 +11,7 @@ function update_current_git_vars() {
         local -a arr
         arr=(${(f)st})
 
+	# need to check for detached HEAD state
         if [[ $arr[1] =~ 'Not currently on any branch.' ]]; then
             __CURRENT_GIT_BRANCH='no-branch'
         else
@@ -38,6 +39,11 @@ function update_current_git_vars() {
 
         if [[ ! $st =~ 'nothing to commit' ]]; then
             __CURRENT_GIT_BRANCH_IS_DIRTY='1'
+        
+        else
+            local staged="$(git diff --staged --name-status 2>/dev/null)"
+            local unstaged="$(git diff --name-status 2>/dev/null)"
+            local untracked="$(git ls-files --others --exclude-standard 2>/dev/null)"
         fi
     fi
 }
