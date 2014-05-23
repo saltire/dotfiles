@@ -6,7 +6,22 @@ setopt appendhistory autocd beep extendedglob nomatch notify
 bindkey -e
 # End of lines configured by zsh-newuser-install
 
+
+# vars
+
+export EDITOR=nano
+
+
+# aliases
+
+alias ls='ls --color=auto'
+alias ll='ls -al'
+
+
+# other source files
+
 source ~/.zsh/completion.zsh
+source ~/.zsh/keys.zsh
 
 
 # prompt
@@ -22,9 +37,3 @@ source ~/.zsh/git.zsh
 PS1="
 %B%n%b@%{$fg_bold[$HOST_COLOR]%}%M%{$reset_color%} %~ %{$fg[red]%}\$(prompt_git_info)%{$fg[default]%}
 %(!.#.>) "
-
-
-# aliases
-
-alias ls='ls -G'
-alias ll='ls -al'
