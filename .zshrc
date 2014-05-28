@@ -11,6 +11,9 @@ bindkey -e
 
 export EDITOR=nano
 
+export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
+
 
 # aliases
 

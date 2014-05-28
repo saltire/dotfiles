@@ -1,0 +1,4 @@
+git clone --no-checkout https://github.com/saltire/dotfiles ~/.dotfiles
+cd ~/.dotfiles
+git config core.worktree ../../
+git checkout
