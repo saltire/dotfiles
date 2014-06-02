@@ -17,7 +17,11 @@ export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
 
 # aliases
 
-alias ls='ls --color=auto'
+if [[ "$(uname)" =~ "Darwin" ]]; then
+    alias ls='ls -G'
+else
+    alias ls='ls --color=auto'
+fi
 alias ll='ls -al'
 
 
