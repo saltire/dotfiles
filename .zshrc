@@ -42,5 +42,5 @@ HOST_COLOR=white # override this in the below file
 source ~/.zsh/git.zsh
 
 PS1="
-%B%n%b@%{$fg_bold[$HOST_COLOR]%}%M%{$reset_color%} %~ %{$fg[red]%}\$(prompt_git_info)%{$fg[default]%}
+%B%n%b@%{$fg_bold[$HOST_COLOR]%}%M%{$reset_color%} %~ \$(prompt_git_info)
 %(!.#.>) "
