@@ -1,0 +1,27 @@
+urxvt.geometry: 120x40
+urxvt.scrollBar_right: true
+urxvt.saveLines: 12000
+
+urxvt.font: xft:Liberation Mono:pixelsize=13:hinting=true
+urxvt.letterSpace: -1
+urxvt.foreground: #f2f2da
+urxvt.background: #3f3f39
+
+urxvt.color0: #000000
+urxvt.color1: #996b6b
+urxvt.color2: #859972
+urxvt.color3: #999972
+urxvt.color4: #6b8299
+urxvt.color5: #857299
+urxvt.color6: #729999
+urxvt.color7: #bfbfac
+
+urxvt.color8: #8c8c7e
+urxvt.color9: #d8a2a2
+urxvt.color10: #bdd8a2
+urxvt.color11: #e5e5b7
+urxvt.color12: #97b8d8
+urxvt.color13: #b299cc
+urxvt.color14: #add8d8
+urxvt.color15: #f2f2da
+
