@@ -11,8 +11,16 @@ bindkey -e
 
 export EDITOR=nano
 
-export PATH=$PATH:$(ruby -rubygems -e "puts Gem.user_dir")/bin
+
+# paths
+
 export GEM_HOME=$(ruby -rubygems -e "puts Gem.user_dir")
+export NPM_PACKAGES="${HOME}/.npm-packages"
+
+export PATH="$PATH:$GEM_HOME/bin:$NPM_PACKAGES/bin"
+
+unset MANPATH
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 
 # aliases
@@ -31,6 +39,8 @@ source ~/.zsh/keys.zsh
 
 autoload -U colors && colors # enable colours
 setopt prompt_subst # allow functions in prompt
+
+eval `dircolors ~/.dir_colors`
 
 HOST_COLOR=white # override this in the below file
 [[ -f ~/.zsh/hostcolor.zsh ]] && source ~/.zsh/hostcolor.zsh

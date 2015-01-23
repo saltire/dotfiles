@@ -1,3 +1,5 @@
+Xcursor*theme: Oxygen_Black
+
 urxvt.geometry: 120x40
 urxvt.scrollBar_right: true
 urxvt.saveLines: 12000
